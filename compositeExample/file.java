@@ -1,16 +1,15 @@
    
 public class file implements fileSystem{
-    private String name;
-    private String space;
+    
+    private int size;
 
-    public file(String name, String space){
-        this.name = name;
-        this.space = space;
+    public file(int size){
+       this.size = size;
     }
 
     @Override
-    public void displayDetails() {
-        System.out.println("File : " + name + "Memory: " + space);
+    public int fileSize() {
+       return size;
     }
 }
 

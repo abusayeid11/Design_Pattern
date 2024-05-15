@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class directory implements fileSystem{
-    private String name;
+   
+    private int size;
     private List<fileSystem> children;
 
     public directory(String name){
-        this.name = name;
+        this.size = 0;
+        
         children = new ArrayList<>();
     }
 
@@ -21,11 +23,14 @@ public class directory implements fileSystem{
     }
 
     @Override
-    public void displayDetails() {
-        System.out.println("Directory: " + name);
-        System.out.println("Contents:");
+    public int fileSize() {
+      
         for (fileSystem component : children) {
-            component.displayDetails();
+            size += component.fileSize();
         }
+
+        return size;
     }
+
+
 }

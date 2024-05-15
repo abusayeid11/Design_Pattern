@@ -1,5 +1,5 @@
 
 public interface access {
 
-    void check(String validity);
+   public void exe(String req);
 }

@@ -1,7 +1,10 @@
 
 public class allAccess implements access{
 
-    public void check(String validity){
-        System.out.println(validity + "is valid");
+   
+
+    @Override
+    public void exe(String req) {
+       System.out.println("Request executed!" );
     }
 }

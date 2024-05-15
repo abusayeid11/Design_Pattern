@@ -3,23 +3,24 @@ import java.util.List;
 
 public class proxyAccess implements access{
     
-    private access allAccess;
-    private List<String>haveAccess;
+    private allAccess allAccess;
+    private List<String> reqAccess;
 
     public proxyAccess(){
         allAccess = new allAccess();
-        haveAccess = new ArrayList<>();
+       reqAccess = new ArrayList<>();
 
-        haveAccess.add("Admin");
+        reqAccess.add("rm -rf");
     }
 
+   
     @Override
-    public void check(String validity) {
-       if(haveAccess.contains(validity)){
-          check(validity);
+    public void exe(String req) {
+       if(reqAccess.contains(req) && user.role != "admin"){
+        System.out.println("Can not execute request");
        }
        else{
-        System.out.println(validity + "don't have permission");
+           allAccess.exe(req);
        }
     }
 
